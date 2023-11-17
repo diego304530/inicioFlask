@@ -1,5 +1,5 @@
 from Repositories.ProductsRepository import ProductsRepository
-from Models.Product import Product
+from Models.Products import Products
 """
 Dentro de la clase se crean unos metodos, estos serán los encargados de manipular 
 a los modelos, en estos se programarán las tareas básicas tales como crear, listar, 
@@ -23,15 +23,15 @@ class ProductsController():
         return dataProduct.__dict__
 
     def create(self, dataProduct):
-        newProduct = Product(dataProduct)
+        newProduct = Products(dataProduct)
         return self.productsRepository.save(newProduct)
 
     def update(self, id, dataProduct):
-        currentProduct = Product(self.productsRepository.findById(id))
-        currentProduct.description = dataProduct["description"]
-        currentProduct.unitValue = dataProduct["unitValue"]
-        currentProduct.quantityAvailable = dataProduct['quantityAvailable']
-        currentProduct.unit = dataProduct['unit']
+        currentProduct = Products(self.productsRepository.findById(id))
+        currentProduct.name = dataProduct["name"]
+        currentProduct.quantity = dataProduct["quantity"]
+        currentProduct.reference = dataProduct['reference']
+        currentProduct.price = dataProduct['price']
         return self.productsRepository.save(id, currentProduct)
 
     def delete(self, id):

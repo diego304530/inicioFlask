@@ -6,5 +6,5 @@ aplicando un polimorfismo de sobre escritura.
 """
 
 
-class Product(AbstractModel):
+class Products(AbstractModel):
     pass

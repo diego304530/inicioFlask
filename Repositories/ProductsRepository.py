@@ -1,6 +1,6 @@
 from Repositories.InterfaceRepository import InterfaceRepository
-from Models.Product import Product
+from Models.Products import Products
 
 
-class ProductsRepository(InterfaceRepository[Product]):
+class ProductsRepository(InterfaceRepository[Products]):
     pass
