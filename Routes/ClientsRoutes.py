@@ -11,7 +11,8 @@ def getClients():
     data = clientsController.index()
     return RespHelper.jsonResp("datos de Clientes", [data], 200)
 
-    @clientsRoutes.route("/clients/<id>", methods=['GET'])
+
+@clientsRoutes.route("/clients/<id>", methods=['GET'])
 def getClient(id):
     data = clientsController.findClient(id)
     return RespHelper.jsonResp("datos del Cliente", [data], 200)

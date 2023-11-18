@@ -11,7 +11,8 @@ def getProducts():
     data = productsController.index()
     return RespHelper.jsonResp("datos de Productos", [data], 200)
 
-    @productRoutes.route("/products/<id>", methods=['GET'])
+
+@productRoutes.route("/products/<id>", methods=['GET'])
 def getProduct(id):
     data = productsController.findProduct(id)
     return RespHelper.jsonResp("datos de Producto", [data], 200)
