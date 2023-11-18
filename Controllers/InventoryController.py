@@ -24,7 +24,7 @@ class InventoryController():
 
     def create(self, dataInventory):
         newInventory = Inventory(dataInventory)
-        return self.inventoryRepository.save(newProduct)
+        return self.inventoryRepository.save(newInventory)
 
     def update(self, id, dataInventory):
         currentInventory = Inventory(self.inventoryRepository.findById(id))
