@@ -32,7 +32,8 @@ class ClientsController():
         currentClients.lastName = dataClients["lastName"]
         currentClients.address = dataClients['address']
         currentClients.email = dataClients['email']
-        return self.clientsRepository.save(id, currentClients)
+        currentClients.birthdayDate = dataClients['birthdayDate']
+        return self.clientsRepository.save(currentClients)
 
     def delete(self, id):
         return self.clientsRepository.delete(id)

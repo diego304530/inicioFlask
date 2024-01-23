@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from Config.config import Config
 from utils.RespHelper import RespHelper
-from Routes import ProductsRoutes, InventoryRoutes, ClientsRoutes
+from Routes import ProductsRoutes, InventoryRoutes, ClientsRoutes, EmployeesRoutes
 from waitress import serve
 from flask_cors import CORS
 
@@ -10,6 +10,7 @@ CORS(app)
 app.register_blueprint(ProductsRoutes.productRoutes)
 app.register_blueprint(InventoryRoutes.inventoryRoutes)
 app.register_blueprint(ClientsRoutes.clientsRoutes)
+app.register_blueprint(EmployeesRoutes.employeesRoutes)
 
 
 @app.route("/")

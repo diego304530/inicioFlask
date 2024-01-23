@@ -19,7 +19,7 @@ class ProductsController():
         return self.productsRepository.findAll()
 
     def findProduct(self, id):
-        dataProduct = Product(self.productsRepository.findById(id))
+        dataProduct = Products(self.productsRepository.findById(id))
         return dataProduct.__dict__
 
     def create(self, dataProduct):
@@ -32,7 +32,7 @@ class ProductsController():
         currentProduct.quantity = dataProduct["quantity"]
         currentProduct.reference = dataProduct['reference']
         currentProduct.price = dataProduct['price']
-        return self.productsRepository.save(id, currentProduct)
+        return self.productsRepository.save(currentProduct)
 
     def delete(self, id):
         return self.productsRepository.delete(id)
