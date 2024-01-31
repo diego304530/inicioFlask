@@ -34,7 +34,6 @@ def updateInventory(id):
 
 @inventoryRoutes.route("/inventory/<id>", methods=['DELETE'])
 def deleteInventory(id):
-    dataJson = request.get_json()
     data = inventoryController.delete(id)
     return jsonify(data)
 

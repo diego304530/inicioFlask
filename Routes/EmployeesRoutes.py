@@ -34,6 +34,5 @@ def updateEmployee(id):
 
 @employeesRoutes.route("/employees/<id>", methods=['DELETE'])
 def deleteEmployee(id):
-    dataJson = request.get_json()
     data = employeesController.delete(id)
     return jsonify(data)

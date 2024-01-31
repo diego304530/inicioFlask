@@ -34,6 +34,5 @@ def updateProduct(id):
 
 @productRoutes.route("/products/<id>", methods=['DELETE'])
 def deleteProduct(id):
-    dataJson = request.get_json()
     data = productsController.delete(id)
     return jsonify(data)
