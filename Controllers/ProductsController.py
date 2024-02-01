@@ -40,5 +40,6 @@ class ProductsController():
         dataInventory = self.inventoryRepository.findAll()
         for element in dataInventory:
             if (element['product']['_id'] == id):
-                self.inventoryRepository.delete(element['product']['_id'])
+                print(element['product']['_id'])
+                self.inventoryRepository.delete(element['_id'])
         return self.productsRepository.delete(id)
