@@ -1,5 +1,6 @@
 from Repositories.ProductsRepository import ProductsRepository
 from Models.Products import Products
+from Repositories.InventoryRepository import InventoryRepository
 """
 Dentro de la clase se crean unos metodos, estos serán los encargados de manipular 
 a los modelos, en estos se programarán las tareas básicas tales como crear, listar, 
@@ -14,6 +15,7 @@ class ProductsController():
 
     def __init__(self):
         self.productsRepository = ProductsRepository()
+        self.inventoryRepository = InventoryRepository()
 
     def index(self):
         return self.productsRepository.findAll()
@@ -35,4 +37,8 @@ class ProductsController():
         return self.productsRepository.save(currentProduct)
 
     def delete(self, id):
+        dataInventory = self.inventoryRepository.findAll()
+        for element in dataInventory:
+            if (element['product']['_id'] == id):
+                self.inventoryRepository.delete(element['product']['_id'])
         return self.productsRepository.delete(id)
